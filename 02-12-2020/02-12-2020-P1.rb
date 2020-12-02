@@ -28,3 +28,19 @@ for instance in values
     end
 end
 puts valid_passwords
+
+# OR
+
+values = read_values()
+valid_passwords = 0
+for instance in values
+    password_details = instance.split(' ')
+    required_character = password_details[1].tr!(':', '')
+    password = password_details[2]
+    min = password_details[0].split('-')[0].to_i()
+    max = password_details[0].split('-')[1].to_i()
+    if password.count(required_character).between?(min, max)
+        valid_passwords += 1
+    end
+end
+puts valid_passwords
