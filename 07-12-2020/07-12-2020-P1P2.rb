@@ -1,15 +1,5 @@
 #!/usr/bin/env ruby
 
-def read_values
-    map = Array.new
-    file = File.open("map.txt").read
-    file.each_line do |line|
-        line.gsub!("\n", "")
-        
-    end
-    return map
-end
-
 def parse_rule(rule_str)
     if rule_str.include?("no other bags")
       return {}
